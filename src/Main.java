@@ -1,13 +1,15 @@
 import model.Product;
+import model.OrderItem;
+import model.Order;
 public class Main {
     public static void main(String[] args) throws Exception {
         Product keyboard = new Product(101, "Kayboard", 2499.00);
-        System.out.println(keyboard.getId());
-        System.out.println(keyboard.getName());
-        System.out.println(keyboard.getPrice());
+        Product mouse = new Product(102, "Mouse", 999.00);
+        
+        Order order = new Order();
+        order.addItem(new OrderItem(keyboard, 2));
+        order.addItem(new OrderItem(mouse, 1));
 
-        keyboard.setPrice(2199.00);
-
-        System.out.println("Updated price: " + keyboard.getPrice());
+        System.out.println("Order total: " + order.getTotal());
     }
 }
